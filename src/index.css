@@ -518,7 +518,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .timeline__card p:last-child { color: var(--muted); }
 
 /* ================= Resume ================= */
-.resume-actions { display: flex; justify-content: flex-end; margin-bottom: 18px; }
+.resume-actions { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.resume-actions .filters { margin-bottom: 0; }
 .resume {
   --r-ink: #1b1f33;
   --r-muted: #5b6178;

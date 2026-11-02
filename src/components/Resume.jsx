@@ -1,20 +1,52 @@
+import { useState } from 'react'
 import Section from './Section.jsx'
-import { profile, resume } from '../data.js'
+import { profile, resumeBase, resumes } from '../data.js'
 import { PrintIcon } from './Icons.jsx'
 
 const clean = url => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
 
+// A versão escolhida fica na URL (?cv=cyber) para poder enviar o link de cada currículo
+function getInitialId() {
+  const id = new URLSearchParams(window.location.search).get('cv')
+  return resumes.some(r => r.id === id) ? id : resumes[0].id
+}
+
 export default function Resume() {
+  const [id, setId] = useState(getInitialId)
+  const resume = { ...resumeBase, ...resumes.find(r => r.id === id) }
+
+  const select = next => {
+    setId(next)
+    const url = new URL(window.location.href)
+    url.searchParams.set('cv', next)
+    window.history.replaceState(null, '', url)
+  }
+
+  // Nome do PDF salvo inclui a área de foco
+  const print = () => {
+    const prev = document.title
+    document.title = `Curriculo - ${profile.name} - ${resume.label}`
+    window.print()
+    document.title = prev
+  }
+
   return (
     <Section
       id="curriculo"
       kicker="05 · currículo"
       title="Currículo"
-      subtitle="Versão completa e atualizada. Use o botão para imprimir ou salvar em PDF."
+      subtitle="Escolha a área de foco para ver a versão correspondente. Use o botão para imprimir ou salvar em PDF."
       className="section--resume"
     >
       <div className="resume-actions reveal">
-        <button className="btn btn--primary" onClick={() => window.print()}>
+        <div className="filters" role="tablist" aria-label="Área de foco do currículo">
+          {resumes.map(r => (
+            <button key={r.id} role="tab" aria-selected={id === r.id} className={id === r.id ? 'on' : ''} onClick={() => select(r.id)}>
+              {r.label}
+            </button>
+          ))}
+        </div>
+        <button className="btn btn--primary" onClick={print}>
           <PrintIcon width={18} height={18} /> Imprimir / Salvar PDF
         </button>
       </div>
