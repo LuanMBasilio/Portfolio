@@ -177,7 +177,7 @@ export const resumes = [
     label: 'Cibersegurança',
     headline: 'Cibersegurança Júnior | Estudante de Ciência da Computação',
     summary:
-      'Estudante do 8º semestre de Ciência da Computação (conclusão prevista em 2026) com estudo contínuo de segurança ofensiva e defensiva na plataforma TryHackMe. Base em redes (TCP/IP, LAN, Wi-Fi), instalação e configuração de sistemas e softwares de segurança, e programação em Python, Java e C# — incluindo um sistema de verificação biométrica com visão computacional. No Exército Brasileiro, atuei sob normas rígidas de segurança, controle de materiais e procedimentos padronizados. Busco estágio ou posição júnior em segurança da informação.',
+      'Estudante do 8º semestre de Ciência da Computação (conclusão prevista em 2026) com estudo contínuo de segurança ofensiva e defensiva na plataforma TryHackMe, com foco em operações de SOC: monitoramento com SIEM, detecção com IDS e mapeamento de ameaças pelo framework MITRE ATT&CK. Base em redes (TCP/IP, LAN, Wi-Fi), firewalls, administração de Linux e Windows e programação em Python, Java e C# — incluindo um sistema de verificação biométrica com visão computacional. No Exército Brasileiro, atuei sob normas rígidas de segurança, controle de materiais e procedimentos padronizados. Busco estágio ou posição júnior em segurança da informação na área de Tecnologia da Informação.',
     experience: [
       {
         role: 'Soldado EV — Intendência',
@@ -197,9 +197,11 @@ export const resumes = [
       { name: 'Alice Bot', text: 'Bot de Discord com comandos de moderação e sistema de denúncias para a segurança de uma comunidade.' },
     ],
     skills: [
-      { label: 'Segurança', value: 'Segurança ofensiva e defensiva (TryHackMe), softwares de segurança' },
-      { label: 'Redes', value: 'TCP/IP, LAN, Wi-Fi' },
-      { label: 'Sistemas', value: 'Instalação e configuração de sistemas operacionais e drivers' },
+      { label: 'Segurança defensiva', value: 'Fundamentos de SOC, SIEM, IDS, MITRE ATT&CK, softwares de segurança' },
+      { label: 'Segurança web', value: 'OWASP Top 10, WAFs' },
+      { label: 'Frameworks e normas', value: 'NIST Cybersecurity Framework, ISO/IEC 27001, CIS Controls' },
+      { label: 'Redes', value: 'TCP/IP, LAN, Wi-Fi, firewalls' },
+      { label: 'Sistemas', value: 'Linux, Windows — instalação, configuração e hardening' },
       { label: 'Programação', value: 'Python, Java, C#, JavaScript, SQL' },
       { label: 'Ferramentas', value: 'Git, GitHub, OpenCV' },
     ],
